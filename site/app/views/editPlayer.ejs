@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <% include ./partials/nav %>
+      <div class="card" style="width: 50%">
+
+      <form id="delete" method="post" action="/squadOpt/player/delete/<%=player._id%>">
+        <input class="form-control" id="handle" name="handle" value="<%=player.handle%>"></textarea>
+        <input id="_id" name="_id" type="hidden" value="<%=player._id%>">
+      </form>
+
+      <form id="edit" method="post" action="/squadOpt/player/edit" style="padding: 20px">
+          <div class="form-group">
+              <label for="handle" class="text-primary">Handle</label>
+              <input class="form-control" id="handle" name="handle" value="<%=player.handle%>"></textarea>
+
+              <label for="outfit" class="text-primary">Outfit</label>
+              <input class="form-control" id="outfit" name="outfit" value="<%=player.outfit%>"></textarea>
+
+              <label for="_id" class="text-primary">ID</label>
+              <input class="form-control" id="_id" name="_id" type="text" value="<%=player._id%>">
+
+          </div>
+              <input form="edit" type="submit" class="btn btn-primary" value="Save">
+              <input form="delete" type="submit" class="btn btn-danger" value="Delete">
+      </form>
+      </div>
+    </div> <!-- container -->
+  </body>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</html>

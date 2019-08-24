@@ -1,0 +1,26 @@
+{
+  "name": "squadOpt-rest",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prestart": "npm install",
+    "start": "DEBUG=app:* nodemon -L ./app/bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "debug": "^2.6.9",
+    "dotenv": "^5.0.1",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "request": "~2.88.0",
+    "request-promise-native": "~1.0.5",
+    "mongodb": "^3.1.0-beta4",
+    "morgan": "^1.9.0",
+    "popper.js": "^1.14.3",
+    "nodemon": "^1.9.2",
+    "mongoose": "^5.0.1",
+    "node-cleanup": "^2.1.2"
+  },
+  "devDependencies": {}
+}

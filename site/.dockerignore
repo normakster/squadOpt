@@ -1,0 +1,8 @@
+.dockerignore
+Dockerfile
+dockerfile
+_dockerfile
+npm-debug.log
+.git
+.hg
+.svn

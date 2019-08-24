@@ -1,0 +1,51 @@
+version: "3.3"
+services:
+  db:
+    image: db_mongo:latest
+    build:
+        context: ./db
+        dockerfile: dockerfile
+    container_name: db
+    ports:
+      - "27017:27017"
+    networks:
+      - isolated_squadOpt
+    volumes:
+      # - ../dbdata:/data/db
+      - type: volume
+        source: dbdata
+        target: /data/db
+  back_end:
+    image: squadopt_backend:latest
+    build:
+        context: ./rest
+        dockerfile: dockerfile
+    command: npm start
+    container_name: backend
+    ports:
+      - "8081:3000"
+    networks:
+      - isolated_squadOpt
+    environment:
+      - DEBUG=app:*
+    volumes:
+      - ./rest:/opt/app
+  front_end:
+    image: squadopt_frontend:latest
+    build:
+        context: ./site
+        dockerfile: dockerfile
+    command: npm start
+    container_name: frontend
+    ports:
+      - "81:3000"
+    networks:
+      - isolated_squadOpt
+    environment:
+      - DEBUG=app:*
+    volumes:
+      - ./site:/opt/app
+volumes:
+  dbdata:
+networks:
+  isolated_squadOpt:
